@@ -1,13 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import logo from "../public/amazon_PNG11.png";
-import { SearchIcon, ShoppingCartIcon } from "@heroicons/react/solid";
+import { MenuIcon, SearchIcon, ShoppingCartIcon } from "@heroicons/react/solid";
 
 const Header = () => {
   return (
     <header>
       {/* Top Header */}
-      <div className="bg-[#232F3E] flex items-center p-1 flex-grow py-2">
+      <div className="bg-[#131921] flex items-center p-1 flex-grow py-2">
         {/* Image */}
         <div className="flex mt-2 items-center flex-grow sm:flex-grow-0">
           <Image
@@ -54,7 +54,21 @@ const Header = () => {
       </div>
 
       {/* Bottom Header */}
-      <div></div>
+      <div className="flex items-center space-x-3 p-2 bg-[#282E3D] text-white text-sm">
+        <p className="cursor-pointer flex items-center">
+          <MenuIcon className="h-6 mr-1" />
+        </p>
+        <p className="cursor-pointer">Prime Video</p>
+        <p className="cursor-pointer">Amazon Business</p>
+        <p className="cursor-pointer">Today&rsquo;s Deals</p>
+        <p className="cursor-pointer hidden lg:inline-flex">Electronics</p>
+        <p className="cursor-pointer hidden lg:inline-flex">Food & Grocery</p>
+        <p className="cursor-pointer hidden lg:inline-flex">Buy Again</p>
+        <p className="cursor-pointer hidden lg:inline-flex">Shopper Toolkit</p>
+        <p className="cursor-pointer hidden lg:inline-flex">
+          Health & Personal Care Toolkit
+        </p>
+      </div>
     </header>
   );
 };
