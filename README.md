@@ -1,1 +1,2 @@
 - ssr kore browser er tag e bosay dey - seo friendly.
+- ss props - fetch krar somoy server er maddhome heat kore browser e dische, fole seo te subidha pauya jay
