@@ -2,8 +2,11 @@ import React from "react";
 import Image from "next/image";
 import logo from "../public/amazon_PNG11.png";
 import { MenuIcon, SearchIcon, ShoppingCartIcon } from "@heroicons/react/solid";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const Header = () => {
+  const { data } = useSession();
+  // console.log(data);
   return (
     <header>
       {/* Top Header */}
@@ -30,12 +33,24 @@ const Header = () => {
 
         {/* Other Menu */}
         <div className="text-white flex items-center text-xs space-x-8 whitespace-nowrap relative mx-6">
-          <div className="relative link">
-            <p className="hover:underline">Sign In</p>
+          <div className="relative link" onClick={signIn}>
+            <p className="hover:underline cursor-pointer">
+              {data ? `Hello ${data?.user?.name}` : "Sign In"}
+            </p>
+
             <br />
-            <span className="absolute -bottom-3 bg-yellow-400 text-center cursor-pointer w-12 text-black font-bold px-1 h-5">
-              Log Out
-            </span>
+            {data && (
+              <span
+                className={`${
+                  !signIn
+                    ? "hidden"
+                    : "absolute -bottom-3 bg-yellow-400 text-center cursor-pointer w-12 text-black font-bold px-1 h-5"
+                }`}
+                onClick={!data ? signIn : signOut}
+              >
+                Log Out
+              </span>
+            )}
           </div>
           <div className="link">
             <p>Returns</p>
