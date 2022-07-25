@@ -3,9 +3,11 @@ import Image from "next/image";
 import logo from "../public/amazon_PNG11.png";
 import { MenuIcon, SearchIcon, ShoppingCartIcon } from "@heroicons/react/solid";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const { data } = useSession();
+  const router = useRouter();
   // console.log(data);
   return (
     <header>
@@ -20,6 +22,7 @@ const Header = () => {
             alt="Logo Image"
             objectFit="contain"
             className="cursor-pointer"
+            onClick={() => router.push("/")}
           />
         </div>
         {/* Search */}
@@ -56,7 +59,10 @@ const Header = () => {
             <p>Returns</p>
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
-          <div className="link relative flex items-center">
+          <div
+            className="link relative flex items-center"
+            onClick={() => router.push("/checkout")}
+          >
             <span className="absolute top-0 right-0 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">
               0
             </span>
