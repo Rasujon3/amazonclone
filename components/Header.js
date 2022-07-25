@@ -4,10 +4,13 @@ import logo from "../public/amazon_PNG11.png";
 import { MenuIcon, SearchIcon, ShoppingCartIcon } from "@heroicons/react/solid";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { selectItems } from "../slice/basketSlice";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const { data } = useSession();
   const router = useRouter();
+  const items = useSelector(selectItems);
   // console.log(data);
   return (
     <header>
@@ -64,7 +67,7 @@ const Header = () => {
             onClick={() => router.push("/checkout")}
           >
             <span className="absolute top-0 right-0 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">
-              0
+              {items.length}
             </span>
             <ShoppingCartIcon className="h-10" />
             <p className="hidden md:inline font-extrabold md:text-sm mt-2">
