@@ -18,7 +18,11 @@ const Product = ({
   price,
   rating,
 }) => {
+  const ratingFromApi = Math.floor(rating.rate);
+  const hasPrime = useState(Math.random() < 0.5);
+
   const dispatch = useDispatch();
+
   const addItemToBasket = () => {
     const product = {
       id,
@@ -28,6 +32,7 @@ const Product = ({
       image,
       price,
       rating,
+      hasPrime,
     };
     dispatch(addToBasket(product));
   };
@@ -35,8 +40,7 @@ const Product = ({
   // const rating = useState(
   //   Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   // );
-  const ratingFromApi = Math.floor(rating.rate);
-  const hasPrime = useState(Math.random() < 0.5);
+
   return (
     <div className="relative flex-col m-5 bg-white z-30 p-10">
       <p className="absolute top-2 right-2 text-xs italic text-gray-400">

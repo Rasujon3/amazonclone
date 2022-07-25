@@ -30,7 +30,7 @@ const CheckOut = () => {
           {/* Cart div */}
           <div className="flex flex-col p-5 space-y-10 bg-white">
             <h1 className="text-3xl border-b pb-4">
-              {items.length === 0 ? "YOur Basket is Empty" : "Shopping basket"}
+              {items.length === 0 ? "Your Basket is Empty" : "Shopping basket"}
             </h1>
             {items.map((item, index) => (
               <CheckoutProduct
@@ -50,20 +50,24 @@ const CheckOut = () => {
         </div>
 
         {/* Right */}
-        <div>
-          {session.data && (
-            <div>
-              {items.length > 0 && (
-                <>
-                  <h2>Subtotal ({items.length} items)</h2>
-                  <span>
+
+        {session.data && (
+          <div className="flex flex-col bg-white shadow-md p-10">
+            {items.length > 0 && (
+              <>
+                <h2 className="whitespace-nowrap font-bold">
+                  Subtotal ({items.length} items)
+                  <span className="font-bold">
                     <Currency quantity={55} currency="GBP" />
                   </span>
-                </>
-              )}
-            </div>
-          )}
-        </div>
+                </h2>
+                <button className="button from-gray-300 to-gray-500 border-gray-200 text-gray-300">
+                  Process to Checkout
+                </button>
+              </>
+            )}
+          </div>
+        )}
       </main>
     </div>
   );
