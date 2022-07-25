@@ -3,11 +3,22 @@ import Image from "next/image";
 import React from "react";
 import Currency from "react-currency-formatter";
 
-const CheckoutProduct = () => {
+const CheckoutProduct = ({
+  id,
+  title,
+  rating,
+  price,
+  description,
+  category,
+  image,
+  hasPrime,
+  quantity,
+}) => {
+  const ratingFromApi = Math.floor(rating.rate);
   return (
     <div className="grid grid-cols-5">
       <Image
-        src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+        src={image}
         height={200}
         width={200}
         objectFit="contain"
@@ -16,25 +27,28 @@ const CheckoutProduct = () => {
 
       {/* Middle */}
       <div className="col-span-2 mx-5">
-        <p>Product Title</p>
+        <p>{title}</p>
         <div className="flex">
-          {Array(5)
+          {Array(ratingFromApi)
             .fill()
             .map((_, i) => (
               <StarIcon key={i} className="h-5 text-yellow-500" />
             ))}
         </div>
-        <p className="text-xs my-2 line-clamp-3">
-          Product Description: Lorem ipsum dolor, sit amet consectetur
-          adipisicing elit. At, debitis.{" "}
-        </p>
-        <Currency quantity={200} currency="GBP" />
+        <p className="text-xs my-2 line-clamp-3">{description}</p>
+        <Currency quantity={price} currency="GBP" />
+        {hasPrime && (
+          <div>
+            <Image src="https://links.papareact.com/fdw" alt="hasPrime" />
+            <p className="text-xs text-gray-500">Free Next-Day Delivery</p>
+          </div>
+        )}
       </div>
 
       {/* Product quantity controller */}
       <div className="flex flex-col sm:flex-row space-x-3 items-center justify-center sm:justify-items-end mr-5">
         <PlusIcon className="h-8 cursor-pointer" />
-        <span className="font-bold">5</span>
+        <span className="font-bold">{quantity}</span>
         <MinusIcon className="h-8 cursor-pointer" />
       </div>
 
