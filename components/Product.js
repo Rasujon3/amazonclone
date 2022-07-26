@@ -19,7 +19,7 @@ const Product = ({
   rating,
 }) => {
   const ratingFromApi = Math.floor(rating.rate);
-  const hasPrime = useState(Math.random() < 0.5);
+  // const hasPrime = useState(Math.random() < 0.5);
 
   const dispatch = useDispatch();
 
