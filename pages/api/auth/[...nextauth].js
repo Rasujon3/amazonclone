@@ -9,4 +9,6 @@ export default NextAuth({
     }),
     // ...add more providers here
   ],
+  callbacks: {},
+  secret: process.env.GOOGLE_SECRET,
 });

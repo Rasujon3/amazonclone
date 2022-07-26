@@ -1,8 +1,11 @@
 import { CheckCircleIcon } from "@heroicons/react/solid";
 import React from "react";
 import Header from "../components/Header";
+import { useRouter } from "next/router";
 
 const success = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const router = useRouter();
   return (
     <div>
       <Header />
@@ -19,7 +22,9 @@ const success = () => {
             ex provident laboriosam ab dicta consequuntur delectus expedita
             ducimus blanditiis.
           </p>
-          <button className="button mt-8">Go to My Order</button>
+          <button onClick={() => router.push("/")} className="button mt-8">
+            Go to Home Page
+          </button>
         </div>
       </main>
     </div>
