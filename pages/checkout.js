@@ -62,7 +62,7 @@ const CheckOut = () => {
                 description={item.description}
                 category={item.category}
                 image={item.image}
-                hasPrime={item.hasPrime}
+                // hasPrime={item.hasPrime}
                 quantity={item.quantity}
               />
             ))}

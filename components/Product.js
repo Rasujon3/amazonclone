@@ -32,7 +32,7 @@ const Product = ({
       image,
       price,
       rating,
-      hasPrime,
+      // hasPrime,
     };
     dispatch(addToBasket(product));
   };
@@ -67,16 +67,16 @@ const Product = ({
       <div className="mb-5">
         <Currency quantity={price} currency="USD" />
       </div>
-      {hasPrime && (
-        <div className="flex items-center space-x-2 mt-5">
-          <img
-            className="w-12"
-            src="https://links.papareact.com/fdw"
-            alt="prime"
-          />
-          <p className="text-xs text-gray-500">Free Next-day Delivery</p>
-        </div>
-      )}
+      {/* {hasPrime && ( */}
+      <div className="flex items-center space-x-2 mt-5">
+        <img
+          className="w-12"
+          src="https://links.papareact.com/fdw"
+          alt="prime"
+        />
+        <p className="text-xs text-gray-500">Free Next-day Delivery</p>
+      </div>
+      {/* )} */}
       <button className="button" onClick={addItemToBasket}>
         Add to Basket
       </button>

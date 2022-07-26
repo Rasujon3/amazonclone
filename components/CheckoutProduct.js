@@ -18,7 +18,7 @@ const CheckoutProduct = ({
   description,
   category,
   image,
-  hasPrime,
+  // hasPrime,
   quantity,
 }) => {
   const ratingFromApi = Math.floor(rating.rate);
@@ -33,7 +33,7 @@ const CheckoutProduct = ({
       description,
       category,
       image,
-      hasPrime,
+      // hasPrime,
       quantity,
     };
     dispatch(addToBasket(product));
@@ -71,18 +71,18 @@ const CheckoutProduct = ({
         </div>
         <p className="text-xs my-2 line-clamp-3">{description}</p>
         <Currency quantity={price} currency="GBP" />
-        {hasPrime && (
-          <div>
-            <Image
-              src="https://links.papareact.com/fdw"
-              alt="hasPrime"
-              className="w-12"
-              height={45}
-              width={45}
-            />
-            <p className="text-xs text-gray-500">Free Next-Day Delivery</p>
-          </div>
-        )}
+        {/* {hasPrime && ( */}
+        <div>
+          <Image
+            src="https://links.papareact.com/fdw"
+            alt="hasPrime"
+            className="w-12"
+            height={45}
+            width={45}
+          />
+          <p className="text-xs text-gray-500">Free Next-Day Delivery</p>
+        </div>
+        {/* )} */}
       </div>
 
       {/* Product quantity controller */}
